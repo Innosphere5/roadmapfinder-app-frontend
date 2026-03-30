@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 import {
   View,
   Text,
@@ -10,27 +10,27 @@ import {
   KeyboardAvoidingView,
   Platform,
   StatusBar,
-} from 'react-native';
-import { Ionicons, AntDesign, FontAwesome } from '@expo/vector-icons';
+} from "react-native";
+import { Ionicons, AntDesign, FontAwesome } from "@expo/vector-icons";
 
 const COLORS = {
-  primary: '#3B7BF8',
-  background: '#FFFFFF',
-  text: '#111827',
-  subText: '#6B7280',
-  inputBg: '#F3F4F6',
-  inputBorder: '#E5E7EB',
-  dividerText: '#9CA3AF',
-  socialBorder: '#E5E7EB',
-  placeholderText: '#9CA3AF',
-  labelText: '#374151',
-  linkText: '#3B7BF8',
-  hintText: '#9CA3AF',
+  primary: "#3B7BF8",
+  background: "#FFFFFF",
+  text: "#111827",
+  subText: "#6B7280",
+  inputBg: "#F3F4F6",
+  inputBorder: "#E5E7EB",
+  dividerText: "#9CA3AF",
+  socialBorder: "#E5E7EB",
+  placeholderText: "#9CA3AF",
+  labelText: "#374151",
+  linkText: "#3B7BF8",
+  hintText: "#9CA3AF",
 };
 
 export default function SignIn({ navigation }) {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
 
   const handleGoogleSignIn = () => {
@@ -42,11 +42,11 @@ export default function SignIn({ navigation }) {
   };
 
   const handleSignIn = () => {
-    // Sign-in logic
+    navigation.navigate("Topic");
   };
 
   const handleSignUp = () => {
-    navigation.navigate('SignUp');
+    navigation.navigate("SignUp");
   };
 
   const handleForgotPassword = () => {
@@ -58,8 +58,8 @@ export default function SignIn({ navigation }) {
       <StatusBar barStyle="dark-content" backgroundColor={COLORS.background} />
       <KeyboardAvoidingView
         style={styles.flex}
-        behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
-        keyboardVerticalOffset={Platform.OS === 'ios' ? 0 : 20}
+        behavior={Platform.OS === "ios" ? "padding" : "height"}
+        keyboardVerticalOffset={Platform.OS === "ios" ? 0 : 20}
       >
         <ScrollView
           contentContainerStyle={styles.scrollContent}
@@ -123,7 +123,10 @@ export default function SignIn({ navigation }) {
           <View style={styles.fieldGroup}>
             <View style={styles.labelRow}>
               <Text style={styles.label}>Password</Text>
-              <TouchableOpacity onPress={handleForgotPassword} activeOpacity={0.7}>
+              <TouchableOpacity
+                onPress={handleForgotPassword}
+                activeOpacity={0.7}
+              >
                 <Text style={styles.forgotText}>Forgot password?</Text>
               </TouchableOpacity>
             </View>
@@ -146,7 +149,7 @@ export default function SignIn({ navigation }) {
                 hitSlop={{ top: 8, bottom: 8, left: 8, right: 8 }}
               >
                 <Ionicons
-                  name={showPassword ? 'eye-outline' : 'eye-off-outline'}
+                  name={showPassword ? "eye-outline" : "eye-off-outline"}
                   size={20}
                   color={COLORS.subText}
                 />
@@ -194,7 +197,7 @@ const styles = StyleSheet.create({
   // Brand
   brandName: {
     fontSize: 17,
-    fontWeight: '700',
+    fontWeight: "700",
     color: COLORS.primary,
     marginBottom: 22,
     letterSpacing: 0.1,
@@ -203,7 +206,7 @@ const styles = StyleSheet.create({
   // Heading
   heading: {
     fontSize: 26,
-    fontWeight: '800',
+    fontWeight: "800",
     color: COLORS.text,
     marginBottom: 6,
     letterSpacing: -0.3,
@@ -217,15 +220,15 @@ const styles = StyleSheet.create({
 
   // Social
   socialRow: {
-    flexDirection: 'row',
+    flexDirection: "row",
     gap: 12,
     marginBottom: 24,
   },
   socialButton: {
     flex: 1,
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'center',
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "center",
     gap: 8,
     paddingVertical: 12,
     borderRadius: 10,
@@ -235,14 +238,14 @@ const styles = StyleSheet.create({
   },
   socialButtonText: {
     fontSize: 14,
-    fontWeight: '600',
+    fontWeight: "600",
     color: COLORS.text,
   },
 
   // Divider
   dividerRow: {
-    flexDirection: 'row',
-    alignItems: 'center',
+    flexDirection: "row",
+    alignItems: "center",
     marginBottom: 24,
     gap: 10,
   },
@@ -253,7 +256,7 @@ const styles = StyleSheet.create({
   },
   dividerText: {
     fontSize: 11,
-    fontWeight: '600',
+    fontWeight: "600",
     color: COLORS.dividerText,
     letterSpacing: 0.8,
   },
@@ -263,20 +266,20 @@ const styles = StyleSheet.create({
     marginBottom: 18,
   },
   labelRow: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
     marginBottom: 7,
   },
   label: {
     fontSize: 13,
-    fontWeight: '600',
+    fontWeight: "600",
     color: COLORS.labelText,
     marginBottom: 7,
   },
   forgotText: {
     fontSize: 12,
-    fontWeight: '600',
+    fontWeight: "600",
     color: COLORS.linkText,
     marginBottom: 7,
   },
@@ -284,7 +287,7 @@ const styles = StyleSheet.create({
     backgroundColor: COLORS.inputBg,
     borderRadius: 10,
     paddingHorizontal: 14,
-    paddingVertical: Platform.OS === 'ios' ? 14 : 12,
+    paddingVertical: Platform.OS === "ios" ? 14 : 12,
     fontSize: 14,
     color: COLORS.text,
     borderWidth: 1,
@@ -293,8 +296,8 @@ const styles = StyleSheet.create({
 
   // Password
   passwordContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
+    flexDirection: "row",
+    alignItems: "center",
     backgroundColor: COLORS.inputBg,
     borderRadius: 10,
     borderWidth: 1,
@@ -303,7 +306,7 @@ const styles = StyleSheet.create({
   },
   passwordInput: {
     flex: 1,
-    paddingVertical: Platform.OS === 'ios' ? 14 : 12,
+    paddingVertical: Platform.OS === "ios" ? 14 : 12,
     fontSize: 14,
     color: COLORS.text,
   },
@@ -316,7 +319,7 @@ const styles = StyleSheet.create({
     backgroundColor: COLORS.primary,
     borderRadius: 12,
     paddingVertical: 15,
-    alignItems: 'center',
+    alignItems: "center",
     marginTop: 8,
     marginBottom: 24,
     shadowColor: COLORS.primary,
@@ -327,16 +330,16 @@ const styles = StyleSheet.create({
   },
   signInButtonText: {
     fontSize: 15,
-    fontWeight: '700',
-    color: '#FFFFFF',
+    fontWeight: "700",
+    color: "#FFFFFF",
     letterSpacing: 0.2,
   },
 
   // Sign Up
   signUpRow: {
-    flexDirection: 'row',
-    justifyContent: 'center',
-    alignItems: 'center',
+    flexDirection: "row",
+    justifyContent: "center",
+    alignItems: "center",
   },
   signUpText: {
     fontSize: 13,
@@ -344,7 +347,7 @@ const styles = StyleSheet.create({
   },
   signUpLink: {
     fontSize: 13,
-    fontWeight: '700',
+    fontWeight: "700",
     color: COLORS.linkText,
   },
 });
